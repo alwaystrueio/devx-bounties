@@ -1,0 +1,98 @@
+name: Bounty
+description: Propose or track a community bounty on a Cardano developer tool or library.
+title: "[Bounty] "
+labels:
+  - bounty
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use one issue per bounty. The bounty itself is created on the upstream issue; this issue tracks it.
+
+        **This repository is public.** Do not include names, countries, documents, or recipient-check results here.
+
+  - type: input
+    id: upstream-issue
+    attributes:
+      label: Upstream issue
+      description: The issue in the project's repository that the bounty will be attached to.
+      placeholder: https://github.com/owner/repo/issues/123
+    validations:
+      required: true
+
+  - type: input
+    id: maintainer-confirmation
+    attributes:
+      label: Maintainer confirmation
+      description: Link to the comment where a maintainer confirms they want this change and will review it. Leave empty if this is still pending. A bounty cannot be posted without it.
+      placeholder: https://github.com/owner/repo/issues/123#issuecomment-456
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What is wrong or missing, and who it affects.
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance criteria
+      description: The specific, checkable conditions the work must meet.
+      placeholder: |
+        - [ ] ...
+        - [ ] ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: definition-of-done
+    attributes:
+      label: Definition of done
+      description: What must be true for the pull request to be merged, including tests and documentation.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: size
+    attributes:
+      label: Size
+      description: Split large work into several smaller bounties where possible.
+      options:
+        - Small (bug fix or documentation fix with tests)
+        - Medium (contained feature or non-trivial fix)
+        - Large (multi-PR or cross-library work)
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: How many developers this affects, the maintainer's priority, and the expertise needed. These adjust the reward within a size.
+
+  - type: input
+    id: proposed-reward
+    attributes:
+      label: Proposed reward
+      description: Amount the contributor should receive, in USD. The posted amount is this divided by 0.95 to cover the GitHoney fee.
+      placeholder: 500 USD
+
+  - type: input
+    id: proposed-duration
+    attributes:
+      label: Proposed duration
+      description: Minimum 5 days. Leave time for review and the recipient check, because the merge must happen before the deadline.
+      placeholder: 30 days
+
+  - type: checkboxes
+    id: readiness
+    attributes:
+      label: Readiness
+      description: Tick these as they are completed. All four are needed before the bounty is created.
+      options:
+        - label: A maintainer has confirmed on the upstream issue
+        - label: The upstream issue states the problem, acceptance criteria, and definition of done
+        - label: The GitHoney app is installed on the upstream repository
+        - label: The spend is approved and recorded in the bounty register
