@@ -3,6 +3,8 @@ description: Propose or track a community bounty on a Cardano developer tool or 
 title: "[Bounty] "
 labels:
   - bounty
+projects:
+  - alwaystrueio/3
 body:
   - type: markdown
     attributes:
