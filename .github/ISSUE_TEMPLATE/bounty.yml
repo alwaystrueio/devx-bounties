@@ -13,6 +13,18 @@ body:
 
         **This repository is public.** Do not include names, countries, documents, or recipient-check results here.
 
+        Every bounty is governed by the [Cardano DevX Bounty Program Participant Rules](https://alwaystrue.io/terms-bounties). Keep the Terms field below as it is, so the issue states them.
+
+  - type: textarea
+    id: terms
+    attributes:
+      label: Terms
+      description: Shown on every bounty. Do not edit.
+      value: |
+        By accepting this bounty, you accept the [Cardano DevX Bounty Program Participant Rules](https://alwaystrue.io/terms-bounties).
+    validations:
+      required: true
+
   - type: input
     id: upstream-issue
     attributes:
